@@ -37,7 +37,7 @@ var prodotto = num1 * num2;
 var differenza = num1 - num2;
 var quoziente = num1/num2;
 
-// console.log("La somma vale: " + (num1 + num2));
+console.log("La somma vale: " + num1 + num2);
 console.log("La somma vale: " + somma);
 
 //Scrivo nella pagina
