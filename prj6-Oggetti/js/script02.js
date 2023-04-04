@@ -1,5 +1,4 @@
 //Notazione con costruttore, utile quando ho più oggetti dello stesso tipo
-
 function Studente(nome, cognome, mail, matricola, materie){
     this.nome = nome
     this.cognome = cognome;
