@@ -1,0 +1,20 @@
+.red{
+    color: red;
+}
+
+
+.blue{
+    color: blue;
+}
+
+.bold{
+    font-weight: bold;
+    font-size: medium;
+    line-height: 35px;
+}
+
+
+.dimImg{
+    width: 200px;
+    height: auto;
+}

@@ -1,0 +1,21 @@
+.dimImg{
+    width: 100px;
+    height: auto;
+}
+
+/* Le classi sono tutte identificate con il . 
+Posso applicare più classi allo stesso elemento.
+Posso applicare la stessa classe a più elementi. */
+.clRed{
+    color: red;
+}
+
+.sottolineato{
+    text-decoration: underline;
+}
+
+/* Il cancelletto, hash, rappresenta l'id */
+#selProd{
+    color: blue;
+}
+
