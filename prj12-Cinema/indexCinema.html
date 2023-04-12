@@ -16,7 +16,7 @@
     
     <h1>Cinema Coding</h1>
 
-    <div class="container">
+    <div class="container" id="divLocandina">
 
         <h3 id="titolo"></h3>
 
@@ -37,8 +37,18 @@
         <button id="btnAvanti">Avanti</button>
     </div>
 
-
+    <div class=conteiner id=divLogin>
+        <h3>Login</h3>
+        <input type=text id="username" placeholder="username"><br>
+        <input type=text id="password" placeholder="password"><br>
+        <button id="btnLogin">Login</button>
+    </div>
+    <!--Faccio il login con un qualsiosi username e password (Controllo solo che io campi sono sati compilati).
+        Saluto l'utente.
+        Quando l'utente è connesso mostro un pulsante sotto le singole locandine "Compra".
+        Quando l'utente clicca si Compra verrà registrato il titolo nella localStorage e verrà mostrato, in una lista, dento il divLogin-->
     <script src="./js/scriptCinema.js"></script>
 
 </body>
 </html>
+

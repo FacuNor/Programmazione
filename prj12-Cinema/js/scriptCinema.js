@@ -35,7 +35,7 @@ var filmsJSON = [
         poster: "https://m.media-amazon.com/images/M/MV5BNzQzMzJhZTEtOWM4NS00MTdhLTg0YjgtMjM4MDRkZjUwZDBlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
         trama:"A blade runner must pursue and terminate four replicants who stole a ship in space and have returned to Earth to find their creator.",
     },
-    
+
     {
         titolo: "Drive",
         regista: "Nicolas Winding Refn",
@@ -132,3 +132,93 @@ function visTrama(){
     
 }
 visualizza();
+
+divLocandina = document.querySelector("#divLocandina");
+
+var btnLogin = document.querySelector("#btnLogin");
+btnLogin.addEventListener("click",click);
+
+var username = document.querySelector("#username");
+var password = document.querySelector("#password");
+
+var connesso = false
+
+var user = {
+    nome: "",
+    password: "",
+    film: []
+}
+
+function click(){
+    if(!connesso){
+        login();
+    }else{
+        logout();
+    }
+    console.log(user);
+}
+
+function login() {
+    let nome = document.querySelector("#username").value;
+    let password = document.querySelector("#password").value;
+    if(nome != "" && password!=""){
+        user.nome = nome;
+        user.password = password;
+        let compra = document.createElement("button");
+        compra.setAttribute("id","compra");
+        compra.textContent="Compra";
+        
+        divLocandina.insertBefore(document.createElement("br"),regista);
+        divLocandina.insertBefore(compra,regista);
+
+        compra.addEventListener("click",compro);
+        
+        btnLogin.textContent="Logout"
+
+        connesso = true;
+
+    }
+    
+}
+
+function logout(){
+    connesso = false;
+    btnLogin.textContent = "Login";
+    divLocandina.removeChild(document.getElementById("compra"));
+    user.nome = "";
+    user.password = "";
+    user.film = []; 
+    azzeroLista();
+}
+
+function compro() {
+    console.log("Sto comprando "+ filmsJSON[indice].titolo);
+    user.film[user.film.length]=filmsJSON[indice].titolo;
+    let userJSON=JSON.stringify(user);
+    localStorage.setItem("user"+user.nome,userJSON);
+    aggiornoLista();
+    filmComprati++;
+}
+
+
+var filmComprati=0;
+function aggiornoLista() {
+    for(i=0;i<filmComprati;i++){
+        let rimuovo = document.getElementById("listaFilms")
+        divLocandina.removeChild(rimuovo);
+    }
+
+    user.film.forEach(film=>{
+        let listaComprati = document.createElement("li");
+        listaComprati.setAttribute("id","listaFilms");
+        listaComprati.textContent=film;
+        divLocandina.appendChild(listaComprati);
+    })
+}
+function azzeroLista() {
+    for(i=0;i<filmComprati;i++){
+        let rimuovo = document.getElementById("listaFilms")
+        divLocandina.removeChild(rimuovo);
+    }
+    filmComprati=0;
+}
